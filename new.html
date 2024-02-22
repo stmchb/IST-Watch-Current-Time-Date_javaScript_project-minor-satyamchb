@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time and Date</title>
+  <style>
+    body {
+      background-color: cyan;
+    }
+    #container {
+      background-color: red;
+      border: 2px solid rgb(204, 22, 22);
+    }
+
+    .heading {
+      background-color: blanchedalmond;
+      border-style: groove;
+      text-align: center;
+    }
+
+    .content {
+      line-height: 2.5;
+      background-color: burlywood;
+      text-align: justify;
+      margin-top: 15px;
+      border-style: ridge;
+      border-radius: 15px;
+      padding-left: 14px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <h1 class="heading">India Standard Time and Date Here:</h1>
+  </div>
+  <div class="content">
+    <h1 id="dateTimeDisplay">
+      The Time and Date is :
+    </h1>
+  </div>
+  <script>
+    // Function to update the time and date every second
+    function updateDateTime() {
+      let currentDateTime = new Date();
+      let hours = currentDateTime.getHours();
+      let minutes = currentDateTime.getMinutes();
+      let seconds = currentDateTime.getSeconds();
+      let date = currentDateTime.toDateString();
+
+      // Format the time and date
+      let formattedDateTime = `${date}, ${hours}:${minutes}:${seconds}`;
+
+      // Display the formatted time and date
+      document.getElementById("dateTimeDisplay").innerText = `The Time and Date is: ${formattedDateTime}`;
+    }
+
+    // Update the time and date initially
+    updateDateTime();
+
+    // Update the time and date every second
+    setInterval(updateDateTime, 1000);
+  </script>
+</body>
+
+</html>
